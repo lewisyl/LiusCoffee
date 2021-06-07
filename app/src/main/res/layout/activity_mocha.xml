@@ -6,4 +6,76 @@
     android:layout_height="match_parent"
     tools:context=".MochaActivity">
 
+    <Button
+        android:id="@+id/mochaBackBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="Back Home"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/mochaTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="cursive"
+        android:text="Mocha"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mochaTitle">
+
+        <ImageView
+            android:id="@+id/mochaIcedImg"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:srcCompat="@drawable/mocha_iced"
+            tools:layout_editor_absoluteX="237dp"
+            tools:layout_editor_absoluteY="242dp" />
+
+        <ImageView
+            android:id="@+id/mochaCaramelImg"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:srcCompat="@drawable/mocha_caramel"
+            tools:layout_editor_absoluteX="78dp"
+            tools:layout_editor_absoluteY="98dp" />
+
+        <ImageView
+            android:id="@+id/mochaCinnamonImg"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:srcCompat="@drawable/mocha_cinnamon"
+            tools:layout_editor_absoluteX="237dp"
+            tools:layout_editor_absoluteY="106dp" />
+
+        <ImageView
+            android:id="@+id/mochaChocolateImg"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:srcCompat="@drawable/mocha_chocolate"
+            tools:layout_editor_absoluteX="92dp"
+            tools:layout_editor_absoluteY="226dp" />
+
+        <ImageView
+            android:id="@+id/mochaWhiteImg"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:srcCompat="@drawable/mocha_white_chocolate"
+            tools:layout_editor_absoluteX="92dp"
+            tools:layout_editor_absoluteY="349dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
