@@ -6,4 +6,262 @@
     android:layout_height="match_parent"
     tools:context=".AmericanoActivity">
 
+    <Button
+        android:id="@+id/americanoBackBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="Back Home"
+        app:backgroundTint="#E91E63"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/americanoTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="cursive"
+        android:text="Americano"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="450dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/americanoTitle">
+
+        <ImageView
+            android:id="@+id/americanoFakeImg"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/americanoCocktailImg"
+            app:srcCompat="@drawable/americano_fake" />
+
+        <ImageView
+            android:id="@+id/americanoHotImg"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/americano_hot" />
+
+        <ImageView
+            android:id="@+id/americanoIcedImg"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/americanoHotImg"
+            app:srcCompat="@drawable/americano_iced" />
+
+        <ImageView
+            android:id="@+id/americanoCocktailImg"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/americanoEspressoImg"
+            app:srcCompat="@drawable/americano_cocktail" />
+
+        <ImageView
+            android:id="@+id/americanoEspressoImg"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/americanoIcedImg"
+            app:srcCompat="@drawable/americano_espresso" />
+
+        <TextView
+            android:id="@+id/americanoHotTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="cursive"
+            android:text="Hot Americano"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/americanoHotImg"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/americanoHotBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="Select"
+            app:backgroundTint="#009688"
+            app:layout_constraintBaseline_toBaselineOf="@+id/americanoHotTitle"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/americanoHotPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="cursive"
+            android:text="$2.50"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/americanoHotImg"
+            app:layout_constraintTop_toBottomOf="@+id/americanoHotTitle" />
+
+        <TextView
+            android:id="@+id/americanoIcedTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="cursive"
+            android:text="Iced Americano"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/americanoIcedImg"
+            app:layout_constraintTop_toBottomOf="@+id/americanoHotPrice" />
+
+        <TextView
+            android:id="@+id/americanoIcedPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="cursive"
+            android:text="$2.70"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/americanoIcedImg"
+            app:layout_constraintTop_toBottomOf="@+id/americanoIcedTitle" />
+
+        <TextView
+            android:id="@+id/americanoEspressoTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="cursive"
+            android:text="Americano Espresso"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/americanoEspressoImg"
+            app:layout_constraintTop_toBottomOf="@+id/americanoIcedPrice" />
+
+        <TextView
+            android:id="@+id/americanoEspressoPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="12dp"
+            android:fontFamily="cursive"
+            android:text="$3.00"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/americanoEspressoImg"
+            app:layout_constraintTop_toBottomOf="@+id/americanoEspressoTitle" />
+
+        <TextView
+            android:id="@+id/americanoCocktailTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="12dp"
+            android:fontFamily="cursive"
+            android:text="Americano Cocktail"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/americanoCocktailImg"
+            app:layout_constraintTop_toBottomOf="@+id/americanoEspressoPrice" />
+
+        <TextView
+            android:id="@+id/americanoCocktailPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="cursive"
+            android:text="$12.00"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/americanoCocktailImg"
+            app:layout_constraintTop_toBottomOf="@+id/americanoCocktailTitle" />
+
+        <TextView
+            android:id="@+id/americanoFakeTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="14dp"
+            android:fontFamily="cursive"
+            android:text="Fake Americano"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/americanoFakeImg"
+            app:layout_constraintTop_toBottomOf="@+id/americanoCocktailPrice" />
+
+        <TextView
+            android:id="@+id/americanoFakePrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="cursive"
+            android:text="$999"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/americanoFakeImg"
+            app:layout_constraintTop_toBottomOf="@+id/americanoFakeTitle" />
+
+        <Button
+            android:id="@+id/americanoIcedBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="Select"
+            app:backgroundTint="#009688"
+            app:layout_constraintBaseline_toBaselineOf="@+id/americanoIcedTitle"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <Button
+            android:id="@+id/americanoEspressoBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="Select"
+            app:backgroundTint="#009688"
+            app:layout_constraintBaseline_toBaselineOf="@+id/americanoEspressoTitle"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <Button
+            android:id="@+id/americanoCocktailBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="Select"
+            app:backgroundTint="#009688"
+            app:layout_constraintBaseline_toBaselineOf="@+id/americanoCocktailTitle"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <Button
+            android:id="@+id/americanoFakeBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="Select"
+            app:backgroundTint="#009688"
+            app:layout_constraintBaseline_toBaselineOf="@+id/americanoFakeTitle"
+            app:layout_constraintEnd_toEndOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

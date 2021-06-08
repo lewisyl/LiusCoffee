@@ -6,66 +6,263 @@
     android:layout_height="match_parent"
     tools:context=".LatteActivity">
 
-    <ImageView
-        android:id="@+id/mainLogo"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
 
-    <TextView
-        android:id="@+id/mainWelcome"
+    <Button
+        android:id="@+id/americanoBackBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="Back Home"
+        app:backgroundTint="#E91E63"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/latteTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:fontFamily="cursive"
-        android:text="Welcome to Liu's Coffee!\nWhat can I get for you?"
-        android:textAlignment="center"
-        android:textSize="28sp"
+        android:text="Latte"
+        android:textSize="34sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainLogo" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/mainMochaBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:text="Mocha"
-        app:layout_constraintBaseline_toBaselineOf="@+id/mainAmericanoBtn"
-        app:layout_constraintEnd_toStartOf="@+id/mainAmericanoBtn" />
-
-    <Button
-        android:id="@+id/mainAmericanoBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Americano"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="450dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainWelcome" />
+        app:layout_constraintTop_toBottomOf="@+id/latteTitle">
 
-    <Button
-        android:id="@+id/mainLatteBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="Latte"
-        app:layout_constraintBaseline_toBaselineOf="@+id/mainAmericanoBtn"
-        app:layout_constraintStart_toEndOf="@+id/mainAmericanoBtn" />
+        <ImageView
+            android:id="@+id/latteMatchaImg"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/latteCharcoalImg"
+            app:srcCompat="@drawable/latte_matcha" />
 
-    <Button
-        android:id="@+id/mainViewOrderBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="24dp"
-        android:text="My Order"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        <ImageView
+            android:id="@+id/latteHotImg"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/latte_hot" />
+
+        <ImageView
+            android:id="@+id/latteIcedImg"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/latteHotImg"
+            app:srcCompat="@drawable/latte_iced" />
+
+        <ImageView
+            android:id="@+id/latteCharcoalImg"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/latteCaramelImg"
+            app:srcCompat="@drawable/latte_charcoal" />
+
+        <ImageView
+            android:id="@+id/latteCaramelImg"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/latteIcedImg"
+            app:srcCompat="@drawable/latte_caramel" />
+
+        <TextView
+            android:id="@+id/latteHotTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="cursive"
+            android:text="Hot Latte"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/latteHotImg"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/latteHotBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="Select"
+            app:backgroundTint="#009688"
+            app:layout_constraintBaseline_toBaselineOf="@+id/latteHotTitle"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/latteHotPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="cursive"
+            android:text="$4.50"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/latteHotImg"
+            app:layout_constraintTop_toBottomOf="@+id/latteHotTitle" />
+
+        <TextView
+            android:id="@+id/latteIcedTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="cursive"
+            android:text="Iced Latte"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/latteIcedImg"
+            app:layout_constraintTop_toBottomOf="@+id/latteHotPrice" />
+
+        <TextView
+            android:id="@+id/latteIcedPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="cursive"
+            android:text="$4.70"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/latteIcedImg"
+            app:layout_constraintTop_toBottomOf="@+id/latteIcedTitle" />
+
+        <TextView
+            android:id="@+id/latteCaramelTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="cursive"
+            android:text="Caramel Latte"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/latteCaramelImg"
+            app:layout_constraintTop_toBottomOf="@+id/latteIcedPrice" />
+
+        <TextView
+            android:id="@+id/latteCaramelPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="12dp"
+            android:fontFamily="cursive"
+            android:text="$5.00"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/latteCaramelImg"
+            app:layout_constraintTop_toBottomOf="@+id/latteCaramelTitle" />
+
+        <TextView
+            android:id="@+id/latteCharcoalTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="12dp"
+            android:fontFamily="cursive"
+            android:text="Charcoal Latte"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/latteCharcoalImg"
+            app:layout_constraintTop_toBottomOf="@+id/latteCaramelPrice" />
+
+        <TextView
+            android:id="@+id/latteCharcoalPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="cursive"
+            android:text="$6.00"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/latteCharcoalImg"
+            app:layout_constraintTop_toBottomOf="@+id/latteCharcoalTitle" />
+
+        <TextView
+            android:id="@+id/latteMatchaTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="14dp"
+            android:fontFamily="cursive"
+            android:text="Matcha Latte"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/latteMatchaImg"
+            app:layout_constraintTop_toBottomOf="@+id/latteCharcoalPrice" />
+
+        <TextView
+            android:id="@+id/latteMatchaPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="cursive"
+            android:text="$6.50"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/latteMatchaImg"
+            app:layout_constraintTop_toBottomOf="@+id/latteMatchaTitle" />
+
+        <Button
+            android:id="@+id/latteIcedBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="Select"
+            app:backgroundTint="#009688"
+            app:layout_constraintBaseline_toBaselineOf="@+id/latteIcedTitle"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <Button
+            android:id="@+id/latteCaramelBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="Select"
+            app:backgroundTint="#009688"
+            app:layout_constraintBaseline_toBaselineOf="@+id/latteCaramelTitle"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <Button
+            android:id="@+id/latteCharcoalBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="Select"
+            app:backgroundTint="#009688"
+            app:layout_constraintBaseline_toBaselineOf="@+id/latteCharcoalTitle"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <Button
+            android:id="@+id/latteMatchaBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="Select"
+            app:backgroundTint="#009688"
+            app:layout_constraintBaseline_toBaselineOf="@+id/latteMatchaTitle"
+            app:layout_constraintEnd_toEndOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
