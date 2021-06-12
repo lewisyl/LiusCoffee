@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LiusCoffee">
-        <activity android:name=".OrderActivity"></activity>
+        <activity android:name=".MyOrderActivity"></activity>
         <activity android:name=".AmericanoActivity" />
         <activity android:name=".MochaActivity" />
         <activity android:name=".LatteActivity" />

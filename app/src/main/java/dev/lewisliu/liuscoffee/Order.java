@@ -1,6 +1,9 @@
 package dev.lewisliu.liuscoffee;
 
-public class Order {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Order implements Parcelable {
     private String _item;
     private double _price;
     private int _quantity;
@@ -10,6 +13,36 @@ public class Order {
         this._price = _price;
         this._quantity = _quantity;
     }
+
+    protected Order(Parcel in) {
+        _item = in.readString();
+        _price = in.readDouble();
+        _quantity = in.readInt();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(_item);
+        dest.writeDouble(_price);
+        dest.writeInt(_quantity);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<Order> CREATOR = new Creator<Order>() {
+        @Override
+        public Order createFromParcel(Parcel in) {
+            return new Order(in);
+        }
+
+        @Override
+        public Order[] newArray(int size) {
+            return new Order[size];
+        }
+    };
 
     public String get_item() {
         return _item;
