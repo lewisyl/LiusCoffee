@@ -10,13 +10,35 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.NumberPicker;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 public class AmericanoActivity extends AppCompatActivity implements NumberPicker.OnValueChangeListener {
-    ArrayList<Parcelable> myOrder;
+    ArrayList<Order> myOrder;
+
     Button americanoBackBtn;
+
+    Button americanoIcedBtn;
+    TextView americanoIcedTitle;
+    TextView americanoIcedPrice;
+
     Button americanoHotBtn;
+    TextView americanoHotTitle;
+    TextView americanoHotPrice;
+
+    Button americanoEspressoBtn;
+    TextView americanoEspressoTitle;
+    TextView americanoEspressoPrice;
+
+    Button americanoCocktailBtn;
+    TextView americanoCocktailTitle;
+    TextView americanoCocktailPrice;
+
+    Button americanoFakeBtn;
+    TextView americanoFakeTitle;
+    TextView americanoFakePrice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,9 +46,28 @@ public class AmericanoActivity extends AppCompatActivity implements NumberPicker
         setContentView(R.layout.activity_americano);
 
         americanoBackBtn = (Button) findViewById(R.id.americanoBackBtn);
-        americanoHotBtn = (Button) findViewById(R.id.americanoHotBtn);
 
-        myOrder = (ArrayList<Parcelable>) getIntent().getParcelableArrayListExtra("MyOrder");
+        americanoHotBtn = (Button) findViewById(R.id.americanoHotBtn);
+        americanoHotTitle = (TextView) findViewById(R.id.americanoHotTitle);
+        americanoHotPrice = (TextView) findViewById(R.id.americanoHotPrice);
+
+        americanoIcedBtn = (Button) findViewById(R.id.americanoIcedBtn);
+        americanoIcedTitle = (TextView) findViewById(R.id.americanoIcedTitle);
+        americanoIcedPrice = (TextView) findViewById(R.id.americanoIcedPrice);
+
+        americanoEspressoBtn = (Button) findViewById(R.id.americanoEspressoBtn);
+        americanoEspressoTitle = (TextView) findViewById(R.id.americanoEspressoTitle);
+        americanoEspressoPrice = (TextView) findViewById(R.id.americanoEspressoPrice);
+
+        americanoCocktailBtn = (Button) findViewById(R.id.americanoCocktailBtn);
+        americanoCocktailTitle = (TextView) findViewById(R.id.americanoCocktailTitle);
+        americanoCocktailPrice = (TextView) findViewById(R.id.americanoCocktailPrice);
+
+        americanoFakeBtn = (Button) findViewById(R.id.americanoFakeBtn);
+        americanoFakeTitle = (TextView) findViewById(R.id.americanoFakeTitle);
+        americanoFakePrice = (TextView) findViewById(R.id.americanoFakePrice);
+
+        myOrder = (ArrayList<Order>) getIntent().getSerializableExtra("MyOrder");
 
         americanoBackBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,7 +79,9 @@ public class AmericanoActivity extends AppCompatActivity implements NumberPicker
         americanoHotBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                show();
+                String item = americanoHotTitle.getText().toString();
+                double price = Double.parseDouble(americanoHotPrice.getText().toString().replace("$", ""));
+                show(item, price);
             }
         });
     }
@@ -55,34 +98,36 @@ public class AmericanoActivity extends AppCompatActivity implements NumberPicker
 
     }
 
-    public void show()
+    public void show(String item, double price)
     {
-
-        final Dialog d = new Dialog(this);
-        d.setTitle("NumberPicker");
-        d.setContentView(R.layout.dialog);
-        Button dialogOrderBtn = (Button) d.findViewById(R.id.dialogOrderBtn);
-        Button dialogCancelBtn = (Button) d.findViewById(R.id.dialogCancelBtn);
-        final NumberPicker np = (NumberPicker) d.findViewById(R.id.numberPicker1);
-        np.setMaxValue(20);
-        np.setMinValue(0);
-        np.setWrapSelectorWheel(false);
-        np.setOnValueChangedListener(this);
+        final Dialog quantityDialog = new Dialog(this);
+        quantityDialog.setTitle("NumberPicker");
+        quantityDialog.setContentView(R.layout.dialog);
+        Button dialogOrderBtn = (Button) quantityDialog.findViewById(R.id.dialogOrderBtn);
+        Button dialogCancelBtn = (Button) quantityDialog.findViewById(R.id.dialogCancelBtn);
+        final NumberPicker quantity = (NumberPicker) quantityDialog.findViewById(R.id.numberPicker1);
+        quantity.setMaxValue(20);
+        quantity.setMinValue(1);
+        quantity.setWrapSelectorWheel(false);
+        quantity.setOnValueChangedListener(this);
         dialogOrderBtn.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v) {
-                // tv.setText(String.valueOf(np.getValue()));
-                d.dismiss();
+                int selectedQuantity = quantity.getValue();
+                Order newOrder = new Order(item, price, selectedQuantity);
+                myOrder.add(newOrder);
+                quantityDialog.dismiss();
+                Toast.makeText(AmericanoActivity.this, "Thank You for Your Order!", Toast.LENGTH_SHORT).show();
             }
         });
         dialogCancelBtn.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v) {
-                d.dismiss();
+                quantityDialog.dismiss();
             }
         });
-        d.show();
+        quantityDialog.show();
     }
 }
