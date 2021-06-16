@@ -84,6 +84,42 @@ public class AmericanoActivity extends AppCompatActivity implements NumberPicker
                 show(item, price);
             }
         });
+
+        americanoIcedBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String item = americanoIcedTitle.getText().toString();
+                double price = Double.parseDouble(americanoIcedPrice.getText().toString().replace("$", ""));
+                show(item, price);
+            }
+        });
+
+        americanoEspressoBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String item = americanoEspressoTitle.getText().toString();
+                double price = Double.parseDouble(americanoEspressoPrice.getText().toString().replace("$", ""));
+                show(item, price);
+            }
+        });
+
+        americanoCocktailBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String item = americanoCocktailTitle.getText().toString();
+                double price = Double.parseDouble(americanoCocktailPrice.getText().toString().replace("$", ""));
+                show(item, price);
+            }
+        });
+
+        americanoFakeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String item = americanoFakeTitle.getText().toString();
+                double price = Double.parseDouble(americanoFakePrice.getText().toString().replace("$", ""));
+                show(item, price);
+            }
+        });
     }
 
     private void backHome() {
