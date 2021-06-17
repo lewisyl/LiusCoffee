@@ -8,6 +8,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -60,7 +61,11 @@ public class MainActivity extends AppCompatActivity {
         viewOrderBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                goOrders();
+                if (getIntent().getSerializableExtra("MyOrder") == null) {
+                    Toast.makeText(MainActivity.this, "Your order list is empty.", Toast.LENGTH_SHORT).show();
+                } else {
+                    goOrders();
+                }
             }
         });
     }

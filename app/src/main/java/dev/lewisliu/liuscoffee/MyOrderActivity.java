@@ -4,42 +4,46 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class MyOrderActivity extends AppCompatActivity {
     ArrayList<Order> myOrder;
-    TextView textView2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order);
 
-        textView2 = (TextView) findViewById(R.id.textView2);
 
         myOrder = (ArrayList<Order>) getIntent().getSerializableExtra("MyOrder");
-
-        textView2.setText(myOrder.get(0).get_item()+"-"+myOrder.get(0).get_price()+"-"+myOrder.get(0).get_quantity());
 
         double subtotal = 0;
         double tax = 0.11;
         double total = subtotal * (1 + tax);
-        ArrayList<String> orderList = new ArrayList<String>();
+        ArrayList<String> orderedItems = new ArrayList<String>();
+        ArrayList<String> orderedPrices = new ArrayList<String>();
+        ArrayList<String> orderedQuantities = new ArrayList<String>();
 
         for (int i = 0; i < myOrder.size(); i++) {
             subtotal += myOrder.get(i).get_price();
-            orderList.add("Item: " + myOrder.get(i).get_item() + " ");
+            orderedItems.add(myOrder.get(i).get_item());
+            orderedPrices.add("$ " + myOrder.get(i).get_price());
+            orderedQuantities.add("x " + myOrder.get(i).get_quantity());
         }
 
-        ArrayAdapter adapter = new ArrayAdapter()
+        ArrayAdapter itemAdapter = new ArrayAdapter<String> (this, R.layout.ordered_items, R.id.orderedItems, orderedItems);
+        ArrayAdapter priceAdapter = new ArrayAdapter<String> (this, R.layout.ordered_prices, R.id.orderedPrices, orderedPrices);
+        ArrayAdapter quantityAdapter = new ArrayAdapter<String> (this, R.layout.ordered_quantities, R.id.orderedQuantities, orderedQuantities);
+        ListView itemListView = (ListView) findViewById(R.id.myOrderItemList);
+        ListView priceListView = (ListView) findViewById(R.id.myOrderPriceList);
+        ListView quantityListView = (ListView) findViewById(R.id.myOrderQuantityList);
+        itemListView.setAdapter(itemAdapter);
+        priceListView.setAdapter(priceAdapter);
+        quantityListView.setAdapter(quantityAdapter);
     }
 
     private void backHome() {
