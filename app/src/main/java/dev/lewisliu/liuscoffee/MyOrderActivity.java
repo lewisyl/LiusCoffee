@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -15,6 +17,7 @@ public class MyOrderActivity extends AppCompatActivity {
     TextView myOrderSubtotal;
     TextView myOrderTax;
     TextView myOrderTotal;
+    Button myOrderBackBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +29,7 @@ public class MyOrderActivity extends AppCompatActivity {
         myOrderSubtotal = (TextView) findViewById(R.id.myOrderSubtotal);
         myOrderTax = (TextView) findViewById(R.id.myOrderTax);
         myOrderTotal = (TextView) findViewById(R.id.myOrderTotal);
+        myOrderBackBtn = (Button) findViewById(R.id.myOrderBackBtn);
 
         double subtotal = 0;
         double tax = 0.11;
@@ -37,7 +41,7 @@ public class MyOrderActivity extends AppCompatActivity {
         for (int i = 0; i < myOrder.size(); i++) {
             subtotal += (myOrder.get(i).get_price())*(myOrder.get(i).get_quantity());
             orderedItems.add(myOrder.get(i).get_item());
-            orderedPrices.add("$ " + myOrder.get(i).get_price());
+            orderedPrices.add("$ " + String.format("%.2f", myOrder.get(i).get_price()));
             orderedQuantities.add("x " + myOrder.get(i).get_quantity());
         }
 
@@ -51,9 +55,16 @@ public class MyOrderActivity extends AppCompatActivity {
         priceListView.setAdapter(priceAdapter);
         quantityListView.setAdapter(quantityAdapter);
 
-        myOrderSubtotal.setText("$" + subtotal);
-        myOrderTax.setText("$" + (subtotal * tax) + " (" + (tax * 100) + "%)");
-        myOrderTotal.setText("$" + (subtotal + (1 + tax)));
+        myOrderSubtotal.setText("$" + String.format("%.2f", subtotal));
+        myOrderTax.setText("$" + String.format("%.2f", (subtotal * tax)) + " (" + (tax * 100) + "%)");
+        myOrderTotal.setText("$" + String.format("%.2f", (subtotal + (1 + tax))));
+
+        myOrderBackBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                backHome();
+            }
+        });
     }
 
     private void backHome() {
