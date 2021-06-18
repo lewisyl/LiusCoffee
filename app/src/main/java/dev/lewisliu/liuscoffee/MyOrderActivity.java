@@ -12,6 +12,9 @@ import java.util.ArrayList;
 
 public class MyOrderActivity extends AppCompatActivity {
     ArrayList<Order> myOrder;
+    TextView myOrderSubtotal;
+    TextView myOrderTax;
+    TextView myOrderTotal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +23,9 @@ public class MyOrderActivity extends AppCompatActivity {
 
 
         myOrder = (ArrayList<Order>) getIntent().getSerializableExtra("MyOrder");
+        myOrderSubtotal = (TextView) findViewById(R.id.myOrderSubtotal);
+        myOrderTax = (TextView) findViewById(R.id.myOrderTax);
+        myOrderTotal = (TextView) findViewById(R.id.myOrderTotal);
 
         double subtotal = 0;
         double tax = 0.11;
@@ -29,7 +35,7 @@ public class MyOrderActivity extends AppCompatActivity {
         ArrayList<String> orderedQuantities = new ArrayList<String>();
 
         for (int i = 0; i < myOrder.size(); i++) {
-            subtotal += myOrder.get(i).get_price();
+            subtotal += (myOrder.get(i).get_price())*(myOrder.get(i).get_quantity());
             orderedItems.add(myOrder.get(i).get_item());
             orderedPrices.add("$ " + myOrder.get(i).get_price());
             orderedQuantities.add("x " + myOrder.get(i).get_quantity());
@@ -44,6 +50,10 @@ public class MyOrderActivity extends AppCompatActivity {
         itemListView.setAdapter(itemAdapter);
         priceListView.setAdapter(priceAdapter);
         quantityListView.setAdapter(quantityAdapter);
+
+        myOrderSubtotal.setText("$" + subtotal);
+        myOrderTax.setText("$" + (subtotal * tax) + " (" + (tax * 100) + "%)");
+        myOrderTotal.setText("$" + (subtotal + (1 + tax)));
     }
 
     private void backHome() {

@@ -46,7 +46,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
-            android:text="Subtotal: $"
+            android:text="Subtotal:"
             android:textStyle="bold"
             app:layout_constraintBaseline_toBaselineOf="@+id/myOrderSubtotal"
             app:layout_constraintEnd_toStartOf="@+id/myOrderSubtotal" />
@@ -56,7 +56,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
-            android:text="Tax: $"
+            android:text="Tax:"
             android:textStyle="bold"
             app:layout_constraintBaseline_toBaselineOf="@+id/myOrderTax"
             app:layout_constraintEnd_toStartOf="@+id/myOrderTax" />
@@ -66,7 +66,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
-            android:text="Total: $"
+            android:text="Total:"
             android:textStyle="bold"
             app:layout_constraintBaseline_toBaselineOf="@+id/myOrderTotal"
             app:layout_constraintEnd_toStartOf="@+id/myOrderTotal" />
