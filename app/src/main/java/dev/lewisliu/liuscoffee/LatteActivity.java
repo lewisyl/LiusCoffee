@@ -47,25 +47,25 @@ public class LatteActivity extends AppCompatActivity implements NumberPicker.OnV
 
         latteBackBtn = (Button) findViewById(R.id.latteBackBtn);
 
-        americanoHotBtn = (Button) findViewById(R.id.americanoHotBtn);
-        americanoHotTitle = (TextView) findViewById(R.id.americanoHotTitle);
-        americanoHotPrice = (TextView) findViewById(R.id.americanoHotPrice);
+        latteHotBtn = (Button) findViewById(R.id.latteHotBtn);
+        latteHotTitle = (TextView) findViewById(R.id.latteHotTitle);
+        latteHotPrice = (TextView) findViewById(R.id.latteHotPrice);
 
-        americanoIcedBtn = (Button) findViewById(R.id.americanoIcedBtn);
-        americanoIcedTitle = (TextView) findViewById(R.id.americanoIcedTitle);
-        americanoIcedPrice = (TextView) findViewById(R.id.americanoIcedPrice);
+        latteIcedBtn = (Button) findViewById(R.id.latteIcedBtn);
+        latteIcedTitle = (TextView) findViewById(R.id.latteIcedTitle);
+        latteIcedPrice = (TextView) findViewById(R.id.latteIcedPrice);
 
-        americanoEspressoBtn = (Button) findViewById(R.id.americanoEspressoBtn);
-        americanoEspressoTitle = (TextView) findViewById(R.id.americanoEspressoTitle);
-        americanoEspressoPrice = (TextView) findViewById(R.id.americanoEspressoPrice);
+        latteCaramelBtn = (Button) findViewById(R.id.latteCaramelBtn);
+        latteCaramelTitle = (TextView) findViewById(R.id.latteCaramelTitle);
+        latteCaramelPrice = (TextView) findViewById(R.id.latteCaramelPrice);
 
-        americanoCocktailBtn = (Button) findViewById(R.id.americanoCocktailBtn);
-        americanoCocktailTitle = (TextView) findViewById(R.id.americanoCocktailTitle);
-        americanoCocktailPrice = (TextView) findViewById(R.id.americanoCocktailPrice);
+        latteCharcoalBtn = (Button) findViewById(R.id.latteCharcoalBtn);
+        latteCharcoalTitle = (TextView) findViewById(R.id.latteCharcoalTitle);
+        latteCharcoalPrice = (TextView) findViewById(R.id.latteCharcoalPrice);
 
-        americanoFakeBtn = (Button) findViewById(R.id.americanoFakeBtn);
-        americanoFakeTitle = (TextView) findViewById(R.id.americanoFakeTitle);
-        americanoFakePrice = (TextView) findViewById(R.id.americanoFakePrice);
+        latteMatchaBtn = (Button) findViewById(R.id.latteMatchaBtn);
+        latteMatchaTitle = (TextView) findViewById(R.id.latteMatchaTitle);
+        latteMatchaPrice = (TextView) findViewById(R.id.latteMatchaPrice);
 
         myOrder = (ArrayList<Order>) getIntent().getSerializableExtra("MyOrder");
 
@@ -73,6 +73,51 @@ public class LatteActivity extends AppCompatActivity implements NumberPicker.OnV
             @Override
             public void onClick(View v) {
                 backHome();
+            }
+        });
+
+        latteHotBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String item = latteHotTitle.getText().toString();
+                double price = Double.parseDouble(latteHotPrice.getText().toString().replace("$", ""));
+                show(item, price);
+            }
+        });
+
+        latteIcedBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String item = latteIcedTitle.getText().toString();
+                double price = Double.parseDouble(latteIcedPrice.getText().toString().replace("$", ""));
+                show(item, price);
+            }
+        });
+
+        latteCaramelBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String item = latteCaramelTitle.getText().toString();
+                double price = Double.parseDouble(latteCaramelPrice.getText().toString().replace("$", ""));
+                show(item, price);
+            }
+        });
+
+        latteCharcoalBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String item = latteCharcoalTitle.getText().toString();
+                double price = Double.parseDouble(latteCharcoalPrice.getText().toString().replace("$", ""));
+                show(item, price);
+            }
+        });
+
+        latteMatchaBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String item = latteMatchaTitle.getText().toString();
+                double price = Double.parseDouble(latteMatchaPrice.getText().toString().replace("$", ""));
+                show(item, price);
             }
         });
     }
